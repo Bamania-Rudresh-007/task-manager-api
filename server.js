@@ -1,8 +1,8 @@
 import "dotenv/config"
 import express from "express"
-import taskRoutes from "./routes/task.routes.js";
-import connectDb from "./db/task.db.js";
-import authRoutes from "./routes/auth.routes.js";
+import taskRoutes from "./src/routes/task.routes.js";
+import connectDb from "./src/db/task.db.js";
+import authRoutes from "./src/routes/auth.routes.js";
 
 const app = express()
 const port = process.env.PORT || 7300;
