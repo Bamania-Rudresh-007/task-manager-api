@@ -1,5 +1,5 @@
 import express from "express";
-import {getAllTasks, getTaskById, createTask, updateTaskById, deleteTaskById} from "../controllers/user.controller"
+import {getAllTasks, getTaskById, createTask, updateTaskById, deleteTaskById} from "../controllers/task.controller.js"
 const taskRoutes = express.Router();
 
 taskRoutes.get("/", getAllTasks);
