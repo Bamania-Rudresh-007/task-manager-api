@@ -9,8 +9,8 @@ const port = process.env.PORT || 7300;
 
 app.use(express.json())
 
-app.use("/tasks", taskRoutes);
-app.use("/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/auth", authRoutes);
 
 connectDb()
 
