@@ -56,7 +56,7 @@ It allows users to:
 ```
 backend
 │
-├── config
+├── db
 │   └── db.js
 │
 ├── models
