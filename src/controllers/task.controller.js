@@ -31,7 +31,7 @@ const getTaskById = async (req, res) => {
     try {
         const allTasks = await Task.findById({
             _id: req.params.id,
-            user: req.userId.id,
+            user: req.user.userId.id,
         });
 
         res.json({
@@ -39,7 +39,7 @@ const getTaskById = async (req, res) => {
             data: allTasks,
         });
     } catch (error) {
-        res.status().jsoh({
+        res.status(500).json({
             message: "Failed fetching all Tasks",
             error: error.message,
         });
@@ -71,7 +71,7 @@ const createTask = async (req, res) => {
 const updateTaskById = async (req, res) => {
     try {
         const updatedTask = await Task.findByIdAndUpdate(
-            { _id: req.params.id, user: user.user.userId },
+            { _id: req.params.id, user: req.user.userId },
             req.body,
             { returnDocument: "after", runValidators: true },
         );
@@ -92,7 +92,7 @@ const deleteTaskById = async (req, res) => {
     try {
         const deletedTask = await Task.findByIdAndDelete({
             _id: req.params.id,
-            user: user.user.userId,
+            user: req.user.userId,
         });
 
         res.json({
