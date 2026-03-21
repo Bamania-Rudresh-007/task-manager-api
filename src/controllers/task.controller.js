@@ -2,7 +2,18 @@ import Task from "../models/task.model.js";
 
 const getAllTasks = async (req, res) => {
     try {
-        const allTasks = await Task.find({ user: req.user.userId });
+        
+        const {status} = req.query;
+
+        const filter = {
+            user: req.user.userId,
+        }
+
+        if(status){
+            filter.status = status;
+        }
+        
+        const allTasks = await Task.find(filter);
 
         res.json({
             message: "fetched all tasks",
